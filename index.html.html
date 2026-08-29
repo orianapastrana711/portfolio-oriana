@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oriana Pastrana — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2E1620;
+    --paper:#FBF3F0;
+    --paper-card:#FFFFFF;
+    --pink:#F9DAE8;
+    --coral:#EB523F;
+    --coral-deep:#9A3122;
+    --muted:#8C737A;
+    --line:#F0DCE2;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:960px;margin:0 auto;padding:0 32px;}
+  a{color:inherit;}
+
+  /* ---------- HEADER ---------- */
+  header{padding:64px 0 40px;}
+  .eyebrow{
+    font-family:'Space Mono', monospace;
+    font-size:13px;
+    letter-spacing:.06em;
+    color:var(--coral-deep);
+    text-transform:uppercase;
+    margin:0 0 18px;
+  }
+  .profile-row{display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
+  .avatar{
+    width:96px;height:96px;border-radius:50%;
+    background:var(--coral-deep);color:var(--pink);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces', serif;font-size:34px;font-weight:600;
+    flex-shrink:0;
+    overflow:hidden;
+  }
+  .avatar img{
+    width:100%;height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:48px;
+    line-height:1.02;
+    margin:0 0 8px;
+    letter-spacing:-.01em;
+  }
+  .role{font-size:19px;color:var(--coral-deep);margin:0 0 14px;font-weight:500;}
+  .badges{display:flex;gap:8px;flex-wrap:wrap;}
+  .badge{
+    font-family:'Space Mono', monospace;
+    font-size:12px;
+    border:1px solid var(--coral);
+    background:var(--pink);
+    color:var(--coral-deep);
+    padding:5px 12px;
+    border-radius:20px;
+  }
+  .contact-bar{
+    margin-top:28px;
+    padding-top:20px;
+    border-top:1px solid var(--line);
+    display:flex;gap:28px;flex-wrap:wrap;
+    font-size:14px;
+  }
+  .contact-bar span{color:var(--muted);}
+  .contact-bar a{text-decoration:none;border-bottom:1px solid var(--coral);}
+
+  /* ---------- BIO ---------- */
+  .bio{padding:12px 0 56px;}
+  .bio p{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:24px;
+    line-height:1.5;
+    max-width:700px;
+    color:var(--ink);
+    margin:0;
+  }
+
+  /* ---------- SECTION LABEL ---------- */
+  .section-label{
+    font-family:'Space Mono', monospace;
+    font-size:13px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--muted);
+    border-bottom:1px solid var(--line);
+    padding-bottom:12px;
+    margin:0 0 28px;
+  }
+
+  /* ---------- FEED GRID ---------- */
+  .feed-section{padding:20px 0 56px;}
+  .feed{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:3px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .post{background:var(--paper-card);}
+  .post-media{
+    aspect-ratio:1/1;
+    overflow:hidden;
+    position:relative;
+    background:var(--pink);
+  }
+  .post-media img{
+    width:100%;height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .post-caption{padding:14px 16px 18px;}
+  .post-caption .cap-title{
+    font-weight:600;font-size:14px;margin:0 0 4px;
+  }
+  .post-caption .cap-desc{
+    font-size:13px;color:var(--muted);margin:0;line-height:1.5;
+  }
+  @media (max-width:640px){
+    .feed{grid-template-columns:1fr;}
+  }
+
+  /* ---------- EXPERIENCE ---------- */
+  .exp-section{padding:20px 0 56px;}
+  .exp-row{
+    display:grid;
+    grid-template-columns:150px 1fr;
+    gap:24px;
+    padding:20px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .exp-row:last-child{border-bottom:none;}
+  .exp-date{
+    font-family:'Space Mono', monospace;
+    font-size:12px;color:var(--muted);
+    padding-top:3px;
+  }
+  .exp-role{font-weight:600;font-size:16px;margin:0 0 4px;}
+  .exp-org{color:var(--coral-deep);font-size:14px;margin:0 0 8px;font-weight:500;}
+  .exp-desc{font-size:14px;color:var(--ink);margin:0;line-height:1.6;opacity:.85;}
+
+  /* ---------- SKILLS ---------- */
+  .skills-section{padding:20px 0 56px;}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;}
+  .tag{
+    font-size:13px;
+    background:var(--pink);
+    border:1px solid var(--line);
+    color:var(--coral-deep);
+    padding:7px 14px;
+    border-radius:20px;
+  }
+
+  /* ---------- CONTACT FOOTER ---------- */
+  footer{
+    background:var(--ink);
+    color:var(--pink);
+    margin-top:20px;
+    padding:56px 0;
+  }
+  footer .wrap{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;}
+  footer h2{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:32px;
+    margin:0 0 10px;
+    max-width:420px;
+    color:var(--paper);
+  }
+  footer p{font-size:14px;color:var(--pink);margin:0;opacity:.85;}
+  .cta{
+    display:inline-block;
+    font-family:'Space Mono', monospace;
+    font-size:13px;
+    background:var(--coral);
+    color:var(--paper);
+    text-decoration:none;
+    padding:14px 26px;
+    border-radius:4px;
+    white-space:nowrap;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <p class="eyebrow">Portfolio · 2026</p>
+    <div class="profile-row">
+      <div class="avatar"><img src="foto-oriana.png" alt="Oriana Pastrana"></div>
+      <div>
+        <h1>Oriana Pastrana</h1>
+        <p class="role">Community Manager · Creación de contenido digital</p>
+        <div class="badges">
+          <span class="badge">Part time</span>
+          <span class="badge">Remoto</span>
+          <span class="badge">Argentina</span>
+        </div>
+      </div>
+    </div>
+    <div class="contact-bar">
+      <span>Villa Tesei, Hurlingham</span>
+      <a href="mailto:orianapastrana711@gmail.com">orianapastrana711@gmail.com</a>
+      <span>11 7641-4202</span>
+    </div>
+  </div>
+</header>
+
+<section class="bio">
+  <div class="wrap">
+    <p>"Diseño, planifico y edito contenido para redes sociales combinando creatividad, organización y criterio visual — con formación en Community Management y UX."</p>
+  </div>
+</section>
+
+<section class="feed-section">
+  <div class="wrap">
+    <p class="section-label">Trabajos — cuadrícula de proyectos</p>
+    <div class="feed">
+
+      <div class="post">
+        <div class="post-media"><img src="imagen_1.jpg" alt="Pieza de contenido para GP Trend School"></div>
+        <div class="post-caption">
+          <p class="cap-title">GP Trend School</p>
+          <p class="cap-desc">Diseño de piezas gráficas para campañas y comunicación institucional.</p>
+        </div>
+      </div>
+
+      <div class="post">
+        <div class="post-media"><img src="imagen_2.png" alt="Pieza de contenido para Conseguí Laburo"></div>
+        <div class="post-caption">
+          <p class="cap-title">Conseguí Laburo</p>
+          <p class="cap-desc">Piezas visuales y edición de contenido para redes sociales.</p>
+        </div>
+      </div>
+
+      <div class="post">
+        <div class="post-media"><img src="imagen_3.png" alt="Identidad visual de Amarina"></div>
+        <div class="post-caption">
+          <p class="cap-title">Amarina</p>
+          <p class="cap-desc">Identidad visual: logotipo, paleta y aplicaciones de marca.</p>
+        </div>
+      </div>
+
+      <div class="post">
+        <div class="post-media"><img src="imagen_4.png" alt="Pantalla del proyecto UX ¿Qué me pongo?"></div>
+        <div class="post-caption">
+          <p class="cap-title">"¿Qué me pongo?"</p>
+          <p class="cap-desc">Investigación de usuarios y benchmarking para app UX.</p>
+        </div>
+      </div>
+
+      <div class="post">
+        <div class="post-media"><img src="imagen_5.png" alt="Pieza de contenido de una etapa anterior en Conseguí Laburo"></div>
+        <div class="post-caption">
+          <p class="cap-title">Conseguí Laburo</p>
+          <p class="cap-desc">Contenido de redes y comunicación con clientes (rol previo, 2022-2024).</p>
+        </div>
+      </div>
+
+      <div class="post">
+        <div class="post-media"><img src="imagen_6.png" alt="Diseño de packaging para Chain Bijou"></div>
+        <div class="post-caption">
+          <p class="cap-title">Chain Bijou</p>
+          <p class="cap-desc">Diseño de presentación de producto para una marca de joyería.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="exp-section">
+  <div class="wrap">
+    <p class="section-label">Experiencia</p>
+
+    <div class="exp-row">
+      <div class="exp-date">ABR 2025 —<br>ACTUALIDAD</div>
+      <div>
+        <p class="exp-role">Community Manager & Content Creator</p>
+        <p class="exp-org">Conseguí Laburo</p>
+        <p class="exp-desc">Diseño de piezas visuales, edición audiovisual corta para Instagram y TikTok, y organización autónoma del calendario de publicaciones.</p>
+      </div>
+    </div>
+
+    <div class="exp-row">
+      <div class="exp-date">FEB 2025 —<br>ABR 2025</div>
+      <div>
+        <p class="exp-role">Community Manager & Content Creator</p>
+        <p class="exp-org">GP Trend School</p>
+        <p class="exp-desc">Creación y programación de contenido, diseño de piezas para campañas institucionales y gestión de la comunidad.</p>
+      </div>
+    </div>
+
+    <div class="exp-row">
+      <div class="exp-date">MAR 2022 —<br>JUL 2024</div>
+      <div>
+        <p class="exp-role">Coordinadora operativa y comercial</p>
+        <p class="exp-org">Conseguí Laburo</p>
+        <p class="exp-desc">Creación de contenido para redes, comunicación con clientes y coordinación de acciones de comunicación interna.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="skills-section">
+  <div class="wrap">
+    <p class="section-label">Herramientas y habilidades</p>
+    <div class="tags">
+      <span class="tag">Canva</span>
+      <span class="tag">CapCut</span>
+      <span class="tag">Instagram</span>
+      <span class="tag">Facebook</span>
+      <span class="tag">TikTok</span>
+      <span class="tag">LinkedIn</span>
+      <span class="tag">Meta Business Suite</span>
+      <span class="tag">Calendario editorial</span>
+      <span class="tag">Redacción de copys</span>
+      <span class="tag">Diseño UX</span>
+      <span class="tag">Google Workspace</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <h2>¿Trabajamos juntos?</h2>
+      <p>Disponible part time y de forma remota, Argentina.</p>
+    </div>
+    <a class="cta" href="mailto:orianapastrana711@gmail.com">ESCRIBIME →</a>
+  </div>
+</footer>
+
+
+</body>
+</html>
